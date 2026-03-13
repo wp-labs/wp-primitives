@@ -1,0 +1,30 @@
+[package]
+name = "wp-primitives"
+version = "0.1.0"
+edition = "2024"
+description = "Lightweight parsing primitives for the Warp Parse stack."
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/wp-labs/wp-primitives"
+homepage = "https://github.com/wp-labs/wp-primitives"
+documentation = "https://docs.rs/wp-primitives"
+categories = ["parsing"]
+keywords = ["parser", "winnow", "dsl", "primitives", "warp"]
+
+[lib]
+name = "wp_primitives"
+path = "src/lib.rs"
+
+[dependencies]
+winnow = "0.7"
+
+[dev-dependencies]
+criterion = "0.8"
+
+[[bench]]
+name = "parser_bench"
+harness = false
+
+[[bench]]
+name = "quick_bench"
+harness = false
