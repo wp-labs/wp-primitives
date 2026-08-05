@@ -99,7 +99,10 @@ mod tests {
 
     #[test]
     fn ip_parses_ipv4() {
-        assert_eq!(parse_ip("192.168.1.10"), IpAddr::from_str("192.168.1.10").unwrap());
+        assert_eq!(
+            parse_ip("192.168.1.10"),
+            IpAddr::from_str("192.168.1.10").unwrap()
+        );
     }
 
     #[test]
@@ -118,7 +121,10 @@ mod tests {
             parse_ip("2001:db8:85a3::8a2e:370:7334"),
             IpAddr::from_str("2001:db8:85a3::8a2e:370:7334").unwrap()
         );
-        assert_eq!(parse_ip("fd00:1::2"), IpAddr::from_str("fd00:1::2").unwrap());
+        assert_eq!(
+            parse_ip("fd00:1::2"),
+            IpAddr::from_str("fd00:1::2").unwrap()
+        );
     }
 
     #[test]
@@ -126,9 +132,15 @@ mod tests {
         // loopback
         assert_eq!(parse_ip("::1"), IpAddr::from_str("::1").unwrap());
         // 压缩 IPv6
-        assert_eq!(parse_ip("2001:db8::1"), IpAddr::from_str("2001:db8::1").unwrap());
+        assert_eq!(
+            parse_ip("2001:db8::1"),
+            IpAddr::from_str("2001:db8::1").unwrap()
+        );
         // ULA
-        assert_eq!(parse_ip("fd00:1::2"), IpAddr::from_str("fd00:1::2").unwrap());
+        assert_eq!(
+            parse_ip("fd00:1::2"),
+            IpAddr::from_str("fd00:1::2").unwrap()
+        );
         // link-local
         assert_eq!(parse_ip("fe80::1"), IpAddr::from_str("fe80::1").unwrap());
         // 完整（非压缩）IPv6
@@ -145,23 +157,35 @@ mod tests {
             parse_ip("::ffff:192.168.1.10"),
             IpAddr::from_str("::ffff:192.168.1.10").unwrap()
         );
-        assert_eq!(parse_ip("::ffff:8.8.8.8"), IpAddr::from_str("::ffff:8.8.8.8").unwrap());
+        assert_eq!(
+            parse_ip("::ffff:8.8.8.8"),
+            IpAddr::from_str("::ffff:8.8.8.8").unwrap()
+        );
     }
 
     #[test]
     fn ip_parses_ipv4_mapped_ipv6_variants() {
         // 边界 mapped
-        assert_eq!(parse_ip("::ffff:0.0.0.0"), IpAddr::from_str("::ffff:0.0.0.0").unwrap());
+        assert_eq!(
+            parse_ip("::ffff:0.0.0.0"),
+            IpAddr::from_str("::ffff:0.0.0.0").unwrap()
+        );
         assert_eq!(
             parse_ip("::ffff:255.255.255.255"),
             IpAddr::from_str("::ffff:255.255.255.255").unwrap()
         );
-        assert_eq!(parse_ip("::ffff:8.8.8.8"), IpAddr::from_str("::ffff:8.8.8.8").unwrap());
+        assert_eq!(
+            parse_ip("::ffff:8.8.8.8"),
+            IpAddr::from_str("::ffff:8.8.8.8").unwrap()
+        );
     }
 
     #[test]
     fn ip_parses_localhost() {
-        assert_eq!(parse_ip("localhost"), IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)));
+        assert_eq!(
+            parse_ip("localhost"),
+            IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1))
+        );
     }
 
     #[test]
